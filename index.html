@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
   <title>Исследование когнитивно-эмоциональной регуляции у пациентов с рассеянным склерозом</title>
   <style>
     * {
@@ -233,117 +233,120 @@
       border: 2px solid #dee2e6;
     }
 
-    /* Мобильная адаптация Струп теста - ДОБАВЬТЕ ЭТОТ КОД */
-@media (max-width: 1024px) {
-  .stimulus-grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 6px !important;
-    padding: 15px !important;
-  }
-  
-  .word-stimulus {
-    font-size: 12px !important;
-    padding: 8px 4px !important;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .hexagon-stimulus {
-    width: 35px !important;
-    height: 40px !important;
-    margin: 2px !important;
-  }
-  
-  .response-buttons {
-    margin: 15px !important;
-    gap: 8px !important;
-  }
-  
-  .response-btn {
-    padding: 12px 15px !important;
-    font-size: 14px !important;
-    min-width: 100px !important;
-    margin: 2px !important;
-  }
-}
+    /* Струп стили */
+    .stroop-card {
+      margin: 30px 0;
+    }
 
-@media (max-width: 768px) {
-  .stimulus-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 5px !important;
-    padding: 10px !important;
-  }
-  
-  .word-stimulus {
-    font-size: 11px !important;
-    padding: 6px 3px !important;
-    min-height: 35px;
-  }
-  
-  .hexagon-stimulus {
-    width: 30px !important;
-    height: 35px !important;
-  }
-  
-  .response-buttons {
-    flex-wrap: wrap;
-    margin: 10px !important;
-  }
-  
-  .response-btn {
-    padding: 10px 12px !important;
-    font-size: 12px !important;
-    min-width: 80px !important;
-    flex: 1 1 calc(50% - 10px);
-  }
-}
-
-@media (max-width: 480px) {
-  .stimulus-grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 4px !important;
-  }
-  
-  .word-stimulus {
-    font-size: 10px !important;
-    padding: 5px 2px !important;
-    min-height: 30px;
-  }
-  
-  .hexagon-stimulus {
-    width: 25px !important;
-    height: 29px !important;
-  }
-  
-  .response-buttons {
-    gap: 5px !important;
-  }
-  
-  .response-btn {
-    padding: 8px 10px !important;
-    font-size: 11px !important;
-    min-width: 70px !important;
-  }
-  
-  /* Горизонтальная ориентация для мобильных */
-  @media (orientation: landscape) {
     .stimulus-grid {
-      grid-template-columns: repeat(10, 1fr) !important;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(240, 249, 255, 0.7);
+      border-radius: 15px;
+      border: 1px solid #e1f5fe;
+      font-family: 'Georgia', serif;
     }
-    
+
     .word-stimulus {
-      font-size: 9px !important;
-      padding: 4px 1px !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 5px;
+      cursor: pointer;
+      border: 2px solid #e1f5fe;
+      border-radius: 8px;
+      background: white;
+      transition: all 0.3s ease;
+      color: #37474f;
+      text-align: center;
     }
-    
+
+    .word-stimulus:hover {
+      border-color: #4fc3f7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 195, 247, 0.15);
+    }
+
+    .word-stimulus.answered {
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+    }
+
+    .word-stimulus.answered.correct {
+      border-color: #4CAF50;
+      background: #f1f8e9;
+    }
+
+    .word-stimulus.answered.incorrect {
+      border-color: #f44336;
+      background: #ffebee;
+    }
+
     .hexagon-stimulus {
-      width: 20px !important;
-      height: 23px !important;
+      width: 50px;
+      height: 58px;
+      margin: 3px;
+      cursor: pointer;
+      display: inline-block;
+      border: 2px solid #e1f5fe;
+      transition: all 0.3s ease;
+      position: relative;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-  }
-}
+
+    .hexagon-stimulus:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .hexagon-stimulus.answered {
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+    }
+
+    .hexagon-stimulus.answered.correct {
+      border-color: #4CAF50;
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+
+    .hexagon-stimulus.answered.incorrect {
+      border-color: #f44336;
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+    }
+
+    .response-buttons {
+      margin: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .response-btn {
+      padding: 15px 25px;
+      margin: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid #546e7a;
+      border-radius: 12px;
+      background: white;
+      color: #546e7a;
+      transition: all 0.3s ease;
+      min-width: 120px;
+    }
+
+    .response-btn:hover {
+      background: #546e7a;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(84, 110, 122, 0.2);
+    }
 
     /* COPE и CERQ стили */
     .question {
@@ -458,30 +461,29 @@
     }
 
     /* Мобильная адаптация TMT */
-    @media (max-width: 1024px) {
+    @media (max-width: 468px) {
       .tmt-container {
-        width: 100% !important;
-        height: 500px !important;
-        transform: scale(0.8);
+        width: 100%;
+        height: 400px;
+        transform: scale(0.7);
         transform-origin: top center;
         margin: 10px auto;
         border: 2px solid #e9ecef;
-        overflow: auto;
-        position: relative;
+        overflow: scroll;
       }
       
       .tmt-circle {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 11px !important;
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
         font-weight: bold;
       }
       
       .timer, .error-count {
-        font-size: 14px;
-        padding: 6px 10px;
-        margin: 3px;
-        display: inline-block;
+        font-size: 16px;
+        padding: 8px 12px;
+        margin: 5px;
+        display: block;
         text-align: center;
       }
       
@@ -499,48 +501,25 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       .tmt-container {
-        height: 400px !important;
-        transform: scale(0.7);
-        overflow: scroll;
+        height: 350px;
+        transform: scale(0.6);
       }
       
       .tmt-circle {
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 11px;
       }
     }
 
-     /* Горизонтальная ориентация для мобильных */
-  @media (orientation: landscape) {
-     .tmt-container {
-       height: 300px !important;
-       transform: scale(0.9);
-    }
-  }
-
-    @media (max-width: 480px) {
+    @media (max-width: 375px) {
       .tmt-container {
-        height: 350px !important;
-        transform: scale(0.6);
+        height: 300px;
+        transform: scale(0.5);
       }
     }
-
-     .tmt-circle {
-       width: 25px !important;
-       height: 25px !important;
-       font-size: 9px !important;
-  }
-
-  /* Горизонтальная ориентация для маленьких экранов */
-  @media (orientation: landscape) {
-     .tmt-container {
-        height: 250px !important;
-        transform: scale(0.75);
-    }
-  }
 
     /* Улучшение для тач-устройств */
     button, .response-btn, .option, .tmt-circle, .word-stimulus, .hexagon-stimulus {
@@ -571,31 +550,6 @@
       25% { transform: translateX(-5px); }
       75% { transform: translateX(5px); }
     }
-
-    @media (max-width: 768px) {
-  .tmt-circle {
-    min-width: 30px;
-    min-height: 30px;
-    touch-action: manipulation;
-  }
-  
-  .word-stimulus, .hexagon-stimulus {
-    touch-action: manipulation;
-    min-height: 44px; /* Минимальный размер для касания */
-  }
-  
-  /* Увеличиваем область касания для кнопок */
-  button, .response-btn {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* Предотвращение масштабирования при двойном тапе */
-.tmt-container, .stimulus-grid {
-  touch-action: pan-x pan-y;
-}
-
   </style>
 </head>
 <body>
@@ -965,7 +919,7 @@
   <script>
     // Функция для отправки данных на сервер
 async function sendDataToServer(data) {
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwp0lFbwPrEKpkSjGpGNNu3KiHjfMWnHQxhg24jmikx6p-MCasiLPVjpsAZSfJdpinX6Q/exec'; // Замените на URL вашего Apps Script
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhnGE5XL80WeEgawgcYs7CWK98qjCvy48-wPu5cKmmkcMvb1UM0rXh99pgdBN-SkVSEg/exec'; // Замените на URL вашего Apps Script
     
     try {
         const response = await fetch(SCRIPT_URL, {
@@ -1174,6 +1128,7 @@ let tmtData = {
     timerInterval: null,
     currentSequence: [],
     errors: 0,
+    errorPositions: [],
     completed: false,
     lines: [],
     expectedNextIndex: 0
@@ -1204,7 +1159,7 @@ function createTMTBoard() {
     tmtData.completed = false;
 
     // Компактный layout для мобильных
-    const isMobile = window.innerWidth <= 1024;
+    const isMobile = window.innerWidth <= 768;
     
     const mobileLayout = [
     { left: 75, top: 30, value: "10", display: "10" },
@@ -1289,7 +1244,11 @@ function handleTMTClick(value, circleElement) {
     } else {
         circleElement.classList.add('error');
         tmtData.errors++;
-        tmtData.currentSequence.push(`${value}*`);
+        tmtData.errorPositions.push({
+            position: tmtData.expectedNextIndex,
+            selected: value,
+            expected: expectedValue
+        });
         document.getElementById('error-count').textContent = tmtData.errors;
         
         setTimeout(() => {
@@ -1356,10 +1315,13 @@ function finishTMT() {
     clearInterval(tmtData.timerInterval);
     
     const totalTime = Math.floor((Date.now() - tmtData.startTime) / 1000);
+    const score = Math.max(0, 100 - (totalTime * 2 + tmtData.errors * 5));
     
     researchData.tmt = {
         time: totalTime,
         errors: tmtData.errors,
+        errorPositions: tmtData.errorPositions,
+        score: score,
         sequence: tmtData.currentSequence.join(' → ')
     };
     
@@ -1527,42 +1489,42 @@ function finishCOPE() {
 
 // CERQ ЛОГИКА
 const cerqQuestions = [
-    "Я чувствую, что в происходящем следует винить себя.",
-    "Я думаю, что мне придется принять тот факт, что это произошло.",
-    "Я часто задумываюсь о том, что я чувствую по отношению к тому, что произошло.",
-    "Я думаю о вещах поприятнее, чем то, что со мной произошло.",
-    "Я думаю о том, что мне лучше всего сделать.",
-    "Я думаю, что эта ситуация меня чему-то научит.",
-    "Я думаю, что все могло бы быть гораздо хуже.",
-    "Я часто думаю, что то, что случилось со мной, гораздо хуже того, что случается с другими.",
-    "Я чувствую, что в случившимся следует винить окружающих.",
-    "Я чувствую, что я единственный(ая), кто в ответе за то, что произошло.",
-    "Я думаю, что мне придется принять ситуацию такой, какая она есть.",
-    "Я озабочен(а) тем, что я думаю и чувствую по отношению к тому, что произошло.",
-    "Я думаю о приятном, о том, что не имеет никакого отношения к произошедшему.",
-    "Я думаю о том, как мне лучше всего справиться с этой ситуацией.",
-    "Я думаю, что стану сильнее в результате этого.",
-    "Я думаю, что другие проходят через куда более трудные испытания.",
-    "Я постоянно думаю о том, как ужасно то, что со мной случилось.",
-    "Я чувствую, что окружающие несут ответственность за то, что со мной случилось.",
-    "Я думаю об ошибках, которые я совершил(а).",
-    "Я думаю, что я не могу ничего изменить.",
-    "Я хочу понять, почему я чувствую то, что я чувствую по отношению к тому, что произошло.",
-    "Я думаю о чем-нибудь хорошем вместо того, чтобы думать о том, что произошло.",
-    "Я думаю о том, как изменить ситуацию.",
-    "Я думаю, что у этой ситуации есть и положительные стороны.",
-    "Мне кажется, что это не самое плохое, что могло случиться.",
-    "Я часто думаю, что то, что со мной случилось – это худшее, что вообще может произойти с человеком.",
-    "Я думаю об ошибках, которые допустили окружающие в этой ситуации.",
-    "Я думаю, что в целом причина всему находится во мне.",
-    "Я думаю, что мне нужно научиться жить с этим.",
-    "Я подробно концентрируюсь на чувствах, которые пробудила во мне ситуация.",
-    "Я думаю о своем позитивном опыте.",
-    "Я продумываю план того, что лучше всего сделать в этой ситуации.",
-    "Я ищу позитивные стороны в сложившейся ситуации.",
-    "Я говорю себе, что бывают в жизни ситуации и похуже.",
-    "Я постоянно думаю о том, как ужасна случившаяся ситуация.",
-    "Я чувствую, что в целом причиной случившемуся является то, что сделали окружающие."
+    "Я чувствую, что я виновен(а) в случившемся.",
+    "Я думаю, что я должен(а) признать, что это уже произошло.",
+    "Я думаю о своих чувствах, переживаниях, связанных с этой ситуацией.",
+    "Я стараюсь думать о более приятных вещах, чем то, что я испытал(а).",
+    "Я думаю о том, что в этой ситуации я могу сделать лучше всего.",
+    "Я думаю, что я могу вынести какой-либо опыт из ситуации.",
+    "Я думаю, что все это могло быть намного хуже.",
+    "Я часто думаю, что то, что я испытал(а), намного хуже, чем то, что испытали другие.",
+    "Я чувствую, что другие виноваты в этом.",
+    "Я чувствую, что я единственный(ая), кто ответственен за то, что случилось.",
+    "Я думаю, что я должен(а) принять ситуацию.",
+    "Я озабочен(а) тем, что я думаю и чувствую об испытанном.",
+    "Я думаю о приятных вещах, которые не имеют никакого отношения к этой ситуации.",
+    "Я размышляю, как именно я могу лучше всего справиться с ситуацией.",
+    "Я думаю, что я могу стать более сильным человеком в результате того, что случилось.",
+    "Я думаю, что другие люди переживают намного худшие события.",
+    "Я продолжаю думао о том, насколько ужасно то, что я испытал(а).",
+    "Я чувствую, что другие ответственны за то, что случилось.",
+    "Я думаю об ошибках, которые я совершил(а) в отношении произошедшего.",
+    "Я думаю, что я ничего в этом не могу изменить.",
+    "Я хочу понять, почему у меня возникают именно такие чувства по отношению к пережитому.",
+    "Я думаю о чем-нибудь хорошем, вместо того чтобы думать о том, что случилось.",
+    "Я думаю, как изменить ситуацию.",
+    "Я думаю, что ситуация также имеет и свои положительные стороны.",
+    "Я думаю, что эта ситуация не была такой уж плохой по сравнению с другими вещами.",
+    "Я думаю, что то, что я испытал(а), — худшее, что может случиться с человеком.",
+    "Я думаю об ошибках, которые совершили другие люди в этой ситуации.",
+    "Я думаю, что в основном причина непосредственно во мне самом(ой).",
+    "Я думаю, что я должен(на) учиться жить с этим.",
+    "Я концентрируюсь на чувствах, которые ситуация вызвала во мне.",
+    "Я думаю о приятных событиях.",
+    "Я стараюсь спланировать то, что лучше всего я могу сделать в этой ситуации.",
+    "Я ищу положительные стороны ситуации.",
+    "Я говорю себе, что в жизни есть и худшие вещи.",
+    "Я непрерывно думаю, насколько ужасна эта ситуация.",
+    "Я чувствую, что в основном причина проблема лежит в других людях."
 ];
 
 function startCERQ() {
@@ -1591,11 +1553,11 @@ function generateCERQQuestions() {
         optionsDiv.className = 'options';
         
         const options = [
-            {value: 1, text: 'почти никогда'},
-            {value: 2, text: 'иногда'},
-            {value: 3, text: 'регулярно'},
-            {value: 4, text: 'часто'},
-            {value: 5, text: 'почти всегда'}
+            {value: 1, text: '1 - никогда'},
+            {value: 2, text: '2 - иногда'},
+            {value: 3, text: '3 - не знаю'},
+            {value: 4, text: '4 - часто'},
+            {value: 5, text: '5 - всегда'}
         ];
         
         options.forEach(option => {
